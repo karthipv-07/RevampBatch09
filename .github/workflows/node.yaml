@@ -30,6 +30,6 @@ jobs:
           node app.js development &
           sleep 5
           curl http://localhost:8080
-          curl http://localhosy:8080/health
+          curl http://localhost:8080/health
           pkill -f "node app.js"
         
