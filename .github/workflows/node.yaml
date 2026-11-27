@@ -1,0 +1,22 @@
+name: Node Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the code
+        uses: actions/checkout@v7
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run the Application
+        run: node app.js
