@@ -18,5 +18,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Generate .env file
+        run: |
+          echo "PORT=8080" >> .env.development
+          echo "APP=Development-Node-App" >> .env.development
+          echo "PORT=5000" >> .env.production
+          echo "APP=Production-Node-App" >> .env.production
+
       - name: Run the Application
-        run: node app.js
+        run: node app.js development 
