@@ -26,4 +26,10 @@ jobs:
           echo "APP=Production-Node-App" >> .env.production
 
       - name: Run the Application
-        run: node app.js development 
+        run: |
+          node app.js development &
+          sleep 5
+          curl http://localhost:8080
+          curl http://localhosy:8080/health
+          pkill -f "node app.js"
+        
