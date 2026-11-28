@@ -1,0 +1,23 @@
+name: Sonarqube pipeline
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  sonarqube:
+    runs-on: self-hosted
+
+    steps:
+      - name: Clone the code
+        uses: actions/checkout@v7
+
+      - name: Run Sonarqube anaysis
+        uses: SonarSource/sonarqube-scan-action@v8
+        with:
+          args: >
+            -Dsonar.projectKey=NodeApplication
+            -Dsonar.sources=.
+            -Dsonar.host.url=http://localhost:9000
+            -Dsonar.token=sqp_e1a3c09d39848ff47fe5f8f90d9db2126cd4a306
