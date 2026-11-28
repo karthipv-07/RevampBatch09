@@ -24,10 +24,18 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    strategy:
+      matrix:
+        node: [24, 26]
 
     steps:
       - name: Clone the code
         uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Install Dependencies
         run: npm install
