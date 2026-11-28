@@ -19,5 +19,5 @@ jobs:
           args: >
             -Dsonar.projectKey=NodeApplication
             -Dsonar.sources=.
-            -Dsonar.host.url=http://localhost:9000
-            -Dsonar.token=sqp_e1a3c09d39848ff47fe5f8f90d9db2126cd4a306
+            -Dsonar.host.url=${{ vars.SONAR_URL }}
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
