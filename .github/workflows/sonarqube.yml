@@ -23,5 +23,5 @@ jobs:
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
             -Dsonar.qualitygate.wait=true
 
-      - name: Fail Pipeline
-        run: exit 1
+      # - name: Fail Pipeline
+      #   run: exit 1
