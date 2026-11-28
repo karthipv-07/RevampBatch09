@@ -21,3 +21,7 @@ jobs:
             -Dsonar.sources=.
             -Dsonar.host.url=${{ vars.SONAR_URL }}
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.qualitygate.wait=true
+
+      - name: Fail Pipeline
+        run: exit 1
