@@ -41,9 +41,9 @@ jobs:
 
       - name: Run the Application
         run: |
-          node app.js development &
+          node app.js ${{ github.event.inputs.environment }} &
           sleep 5
-          curl http://localhost:8080
-          curl http://localhost:8080/health
+          curl http://localhost:${{ github.event.inputs.port }}
+          curl http://localhost:${{ github.event.inputs.port }}/health
           pkill -f "node app.js"
         
